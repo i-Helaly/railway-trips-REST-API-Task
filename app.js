@@ -2,8 +2,10 @@ require("dotenv").config()
 const express = require("express");
 const app = express();
 const tripRoutes = require("./routes/railway.routes")
+const qs = require("qs");
 
 app.use(express.json());
+app.set("query parser" , (str)=> qs.parse(str));
 
 app.use("/api/trips" ,tripRoutes);
 
