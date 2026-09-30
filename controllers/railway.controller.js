@@ -31,9 +31,11 @@ const getTrips = async(req , res)=>{
             }
         }
 
+        //sort 
+        const date = "-createdAt";
+        const sortBy = req.query.sort? req.query.sort.split(",").join(" "): date; 
 
-
-        const trips = await Trip.find(queryObj).skip(skip).limit(limit);
+        const trips = await Trip.find(queryObj).skip(skip).limit(limit).sort(sortBy);
         res.status(200).json({status : jsend.SUCCESS , data : {trips}})
         
     }catch(error){

@@ -30,7 +30,7 @@ const tripSchema = new mongoose.Schema({
       min: 2
     },
 
-})
+} , {timestamps: true})
 
 
 
