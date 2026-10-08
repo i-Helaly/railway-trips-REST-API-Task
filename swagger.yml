@@ -1,0 +1,43 @@
+openapi: 3.0.0
+
+info:
+  title: "Railway Trips API"
+  version: "1.0.0"
+  description: "Test Express API with automated Swagger"
+
+tags:
+  - name: Trip
+    description: "Railway trips operations"
+
+components:
+  schemas:
+    Trip:
+      type: object
+      properties:
+        departure:
+          type: string
+        destination:
+          type: string
+        date:
+          type: string
+          format: date
+        duration:
+          type: number
+        passengers:
+          type: integer
+
+paths:
+  /api/trips:
+    get:
+      tags:
+        - Trip
+      summary: "Get all trips"
+      responses:
+        "200":
+          description: "Trips retrieved successfully"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Trip"
