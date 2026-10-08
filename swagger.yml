@@ -41,3 +41,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Trip"
+    post:
+      tags:
+        - Trip
+      summary: "create Trips"
+      requestBody:
+        require: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/componente/schemas/Trip"
+      responses:
+        "201":
+          description: "Trips created successfully"
+
+
+        
+
+
